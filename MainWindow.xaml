@@ -6,8 +6,74 @@
         xmlns:local="clr-namespace:Steam"
         mc:Ignorable="d"
         WindowStyle="None"
-        Title="MainWindow" Height="1080" Width="1920">
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="MainWindow" Height="1080" Width="1920"
+        MouseDown="Window_MouseDown" >
+
+
+
     <Grid>
-        
+        <ContentControl Content="{Binding ActiveViewModel}" Grid.Column="7"/>
+        <Button x:Name="btnMinimize"                           
+                            BorderThickness="0"
+                            Content="-"
+                            Foreground="White"
+                            FontSize="16"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Click="btnMinimize_Click"
+                            Margin="1868,-1,30,1050">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#424040"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#424040"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="18" Height="18"
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="btnClose"                          
+                            BorderThickness="0"
+                            Content="X"
+                            Foreground="White"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Click="btnClose_Click"
+                            Margin="1890,-1,0,1051" HorizontalAlignment="Left" Width="30">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#424040"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#424040"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="18" Height="18"
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 </Window>

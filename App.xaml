@@ -9,5 +9,9 @@
         <DataTemplate DataType="{x:Type vm:LoginRegistorVM}">
             <v:LoginRegistor/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:RegistrationVM}">
+            <v:Registration/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

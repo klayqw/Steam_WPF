@@ -1,5 +1,4 @@
 ﻿using Steam.Messages;
-using Steam.Messages.Base;
 using Steam.Service;
 using Steam.Service.Base;
 using Steam.ViewModel.Base;
@@ -9,12 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
-using System.Windows.Navigation;
 
 namespace Steam.ViewModel;
 
-public class LoginRegistorVM : ViewModelBase
+public class RegistrationVM : ViewModelBase
 {
     private readonly IMessenger messenger;
     private Visibility errorvisibility;
@@ -24,17 +21,19 @@ public class LoginRegistorVM : ViewModelBase
         set { base.PropertyChange(out errorvisibility, value); }
     }
 
-    private Command registrationView;
-    public Command RegistrationView
+    private Command returntologin;
+
+    public Command Returntologin
     {
-        get => new Command(() => this.messenger.Send(new ViewNavigate(typeof(RegistrationVM))));
-        set => base.PropertyChange(out registrationView, value);
+        get => new Command(() => this.messenger.Send(new ViewNavigate(typeof(LoginRegistorVM))));
+        set => base.PropertyChange(out returntologin, value);
     }
 
-    public LoginRegistorVM(IMessenger messenger)
+
+    public RegistrationVM(IMessenger mess)
     {
         ErrorVisibility = Visibility.Hidden;
-        this.messenger = messenger;
+        this.messenger = mess;
     }
 
 }

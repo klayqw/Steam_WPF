@@ -12,6 +12,8 @@ public class ViewModelBase : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
 
+
+
     protected virtual void PropertyChange<T>(out T field, T value, [CallerMemberName] string propName = "")
     {
         field = value;

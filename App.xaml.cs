@@ -46,6 +46,7 @@ public partial class App : Application
         ServiceContainer.RegisterSingleton<IMessenger, Messenger>();
 
         ServiceContainer.RegisterSingleton<LoginRegistorVM>();
+        ServiceContainer.RegisterSingleton<RegistrationVM>();
         ServiceContainer.RegisterSingleton<MainVM>();
 
         ServiceContainer.Verify();

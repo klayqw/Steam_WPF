@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Steam.View.LoginRegistor"
+﻿<UserControl x:Class="Steam.View.Registration"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -64,6 +64,52 @@
                     </SolidColorBrush>
                 </PasswordBox.Background>
             </PasswordBox>
+            <TextBlock Text="Email"
+                               Foreground="DarkGray"
+                               FontSize="12"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"                             
+                               Margin="0,10,0,0"/>
+            <TextBox x:Name="txtEmail"
+                             FontSize="13"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"                            
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,2"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Margin="0,5,0,0"
+                             Padding="20,0,0,0">
+                <TextBox.Background>
+                    <SolidColorBrush>
+                    </SolidColorBrush>
+                </TextBox.Background>
+            </TextBox>
+            <TextBlock Text="Code from Email"
+                               Foreground="DarkGray"
+                               FontSize="12"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"                             
+                               Margin="0,10,0,0"/>
+            <TextBox x:Name="txtCode"
+                             FontSize="13"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"                            
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,2"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Margin="0,5,0,0"
+                             Padding="20,0,0,0">
+                <TextBox.Background>
+                    <SolidColorBrush>
+                    </SolidColorBrush>
+                </TextBox.Background>
+            </TextBox>
             <TextBlock Text="Wrong Password or Login"
                                Foreground="#e32417"
                                FontSize="12"
@@ -71,15 +117,15 @@
                                FontFamily="Montserrat"                             
                                Margin="0,20,0,0"
                                Visibility="{Binding ErrorVisibility}"/>
-            <Button x:Name="btnLogin"                          
+            <Button x:Name="BackToLogin"                          
                             BorderThickness="0"
-                            Content="LOG IN"
+                            Content="BACK TO LOGIN"
                             Foreground="White"
                             FontSize="12"
                             FontFamily="Montserrat"
                             Cursor="Hand"                           
                             Margin="0,30,0,0"
-                            >
+                            Command="{Binding Returntologin}">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="#424040"/>
@@ -110,7 +156,7 @@
                             FontFamily="Montserrat"
                             Cursor="Hand"
                             Margin="0,10,0,0"
-                            Command="{Binding RegistrationView}">
+                            >
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Background" Value="#424040"/>
@@ -150,6 +196,7 @@
                                Cursor="Hand"
                                Margin="0,-5,0,0"
                                />
+                
             </StackPanel>
         </StackPanel>
     </Grid>

@@ -15,7 +15,7 @@ public class User
     public string Nickname { get; set; }
     public string Email { get; set; }
     public int CardId { get; set; }
-    public Card Card { get; set; }
+    public Card Card { get; set; } = new Card();
     public List<Comment> CommentInGame {get;set;} = new List<Comment>();
     public List<UserGames> UserGames {get;set;} = new List<UserGames>();
 }

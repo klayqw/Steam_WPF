@@ -7,24 +7,25 @@
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920"
              Background="#262323">
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/Assets/Images/background.png">
+    <Border CornerRadius="15">
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Images/background.png">
 
-            </ImageBrush>
-        </Grid.Background>
-        <StackPanel
+                </ImageBrush>
+            </Grid.Background>
+            <StackPanel
                             Orientation="Vertical"
                             Margin="703,256,703,10">
-            <Image Source="/Assets/Images/logo.png"
+                <Image Source="/Assets/Images/logo.png"
                            Width="148" Height="156"/>
-            <TextBlock Text="Username"
+                <TextBlock Text="Login"
                                Foreground="DarkGray"
                                FontSize="12"
                                FontWeight="Medium"
                                FontFamily="Montserrat"                             
                                Margin="0,35,0,0"/>
-            <TextBox x:Name="txtUser"
+                <TextBox x:Name="txtUser"
                              FontSize="13"
                              FontWeight="Medium"
                              FontFamily="Montserrat"                            
@@ -35,19 +36,20 @@
                              Height="28"
                              VerticalContentAlignment="Center"
                              Margin="0,5,0,0"
-                             Padding="20,0,0,0">
-                <TextBox.Background>
-                    <SolidColorBrush>
-                    </SolidColorBrush>
-                </TextBox.Background>
-            </TextBox>
-            <TextBlock Text="Password"
+                             Padding="20,0,0,0"
+                            Text="{Binding Login}">
+                    <TextBox.Background>
+                        <SolidColorBrush>
+                        </SolidColorBrush>
+                    </TextBox.Background>
+                </TextBox>
+                <TextBlock Text="Password"
                                Foreground="DarkGray"
                                FontSize="12"
                                FontWeight="Medium"
                                FontFamily="Montserrat"                             
                                Margin="0,15,0,0"/>
-            <PasswordBox x:Name="txtPass"
+                <TextBox x:Name="txtPass"
                              FontSize="13"
                              FontWeight="Medium"
                              FontFamily="Montserrat"                            
@@ -58,20 +60,27 @@
                              Height="28"
                              VerticalContentAlignment="Center"
                              Margin="0,5,0,0"
-                             Padding="20,0,0,0">
-                <PasswordBox.Background>
-                    <SolidColorBrush>
-                    </SolidColorBrush>
-                </PasswordBox.Background>
-            </PasswordBox>
-            <TextBlock Text="Wrong Password or Login"
+                             Padding="20,0,0,0"
+                             Text="{Binding Password}">
+                    <TextBox.Background>
+                        <SolidColorBrush>
+                        </SolidColorBrush>
+                    </TextBox.Background>
+                </TextBox>
+                <TextBlock Text="Welcome!"
+                Foreground="LightGreen"
+                FontSize="12"
+                FontWeight="Medium"
+                FontFamily="Montserrat"
+                Visibility="{Binding WelcomeVisibility}"/>
+                <TextBlock Text="Wrong Password or Login"
                                Foreground="#e32417"
                                FontSize="12"
                                FontWeight="Medium"
                                FontFamily="Montserrat"                             
                                Margin="0,20,0,0"
                                Visibility="{Binding ErrorVisibility}"/>
-            <Button x:Name="btnLogin"                          
+                <Button x:Name="btnLogin"                          
                             BorderThickness="0"
                             Content="LOG IN"
                             Foreground="White"
@@ -79,30 +88,30 @@
                             FontFamily="Montserrat"
                             Cursor="Hand"                           
                             Margin="0,30,0,0"
-                            >
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#424040"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#28AEED"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
+                            Command="{Binding Log}">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#424040"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#28AEED"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
 
-                </Button.Style>
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="150" Height="40"
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="150" Height="40"
                                         CornerRadius="20"
                                         Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center"
+                                <ContentPresenter VerticalAlignment="Center"
                                                       HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-            <Button x:Name="btnReg"                          
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button x:Name="btnReg"                          
                             BorderThickness="0"
                             Content="REGISTRATION"
                             Foreground="White"
@@ -111,37 +120,37 @@
                             Cursor="Hand"
                             Margin="0,10,0,0"
                             Command="{Binding RegistrationView}">
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Background" Value="#424040"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#424040"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-                <Button.Template>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Width="150" Height="40"
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#424040"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#424040"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="150" Height="40"
                                         CornerRadius="20"
                                         Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center"
+                                <ContentPresenter VerticalAlignment="Center"
                                                       HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-            <StackPanel Orientation="Horizontal"
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Center"
                                 Margin="0,15,0,0">
-                <TextBlock Text="Forgot Password?"
+                    <TextBlock Text="Forgot Password?"
                                Foreground="DarkGray"
                                FontSize="12"
                                FontWeight="Medium"
                                FontFamily="Montserrat"/>
 
-                <Label Content="Reset"                               
+                    <Label Content="Reset"                               
                                Foreground="White"
                                Background="Transparent"
                                FontSize="12"
@@ -150,7 +159,8 @@
                                Cursor="Hand"
                                Margin="0,-5,0,0"
                                />
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
-    </Grid>
+        </Grid>
+    </Border>
 </UserControl>

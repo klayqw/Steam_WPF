@@ -48,6 +48,9 @@ public partial class App : Application
         ServiceContainer.RegisterSingleton<LoginRegistorVM>();
         ServiceContainer.RegisterSingleton<RegistrationVM>();
         ServiceContainer.RegisterSingleton<MainVM>();
+        ServiceContainer.RegisterSingleton<EmailSend>();
+        ServiceContainer.RegisterSingleton<EntityFramework>();
+        ServiceContainer.RegisterSingleton<MainWVM>();
 
         ServiceContainer.Verify();
     }

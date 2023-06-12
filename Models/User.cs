@@ -17,6 +17,5 @@ public class User
     public int CardId { get; set; }
     public Card Card { get; set; }
     public List<Comment> CommentInGame {get;set;} = new List<Comment>();
-
     public List<UserGames> UserGames {get;set;} = new List<UserGames>();
 }

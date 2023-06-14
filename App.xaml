@@ -16,5 +16,17 @@
         <DataTemplate DataType="{x:Type vm:MainWVM}">
             <v:Main/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:StoreViewModel}">
+        <v:StoreView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:GameMoreVM}">
+            <v:GameMore/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AddCardVM}">
+            <v:AddCard/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SettingViewVm}">
+            <v:SettingView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

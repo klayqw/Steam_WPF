@@ -1,5 +1,6 @@
 ﻿using Steam.Messages;
 using Steam.Messages.Base;
+using Steam.Models;
 using Steam.Service;
 using Steam.Service.Base;
 using Steam.ViewModel.Base;
@@ -17,6 +18,7 @@ namespace Steam.ViewModel;
 
 public class LoginRegistorVM : ViewModelBase
 {
+    private User user;
     private string login;
     private string password;
     public string Login
@@ -58,6 +60,13 @@ public class LoginRegistorVM : ViewModelBase
         set => base.PropertyChange(out registrationView, value);
     }
 
+    private Command sendUser;
+    public Command SendUser
+    {
+        get => new Command(() => this.messenger.Send(new GetCurrentUser(user)));
+        set => base.PropertyChange(out sendUser, value);
+    }
+
     private Command log;
     public Command Log
     {
@@ -73,7 +82,9 @@ public class LoginRegistorVM : ViewModelBase
         var password = Password;
         if (App.ServiceContainer.GetInstance<EntityFramework>().Users.Any(x => x.Login == login && x.Password == password))
         {
+            user = App.ServiceContainer.GetInstance<EntityFramework>().Users.FirstOrDefault(x => x.Login == login && x.Password == password);
             WelcomeVisibility = Visibility.Visible;
+            SendUser.Execute(null);
             Mainview.Execute(null);
             return;
         }

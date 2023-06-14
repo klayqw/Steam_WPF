@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Steam.View.Main"
+﻿<UserControl x:Class="Steam.View.AddCard"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -30,6 +30,7 @@
                         </Trigger>
                     </Style.Triggers>
                 </Style>
+
 
             </Button.Style>
             <Button.Template>
@@ -171,8 +172,7 @@
             FontSize="12"
             FontFamily="Montserrat"
             Cursor="Hand"
-            Margin="652,11,1110,1029"
-                Command="{Binding Tosettings}">
+            Margin="652,11,1110,1029">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="#424040"/>
@@ -194,7 +194,108 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
+        <TextBlock Text="Card Number"
+            Foreground="DarkGray"
+            FontSize="12"
+            FontWeight="Medium"
+            FontFamily="Montserrat"                             
+                               Margin="703,322,703,744"/>
+        <TextBox x:Name="txtnumber"
+            FontSize="13"
+            FontWeight="Medium"
+            FontFamily="Montserrat"                            
+            Foreground="White"
+            CaretBrush="LightGray"
+            BorderBrush="DarkGray"
+            BorderThickness="0,0,0,2"
+            VerticalContentAlignment="Center"
+            Padding="20,0,0,0"
+            Text="{Binding NumberOnCard}" Background="#00000000" Margin="703,341,703,711"/>
+        <TextBlock Text="Validaty"
+            Foreground="DarkGray"
+            FontSize="12"
+            FontWeight="Medium"
+            FontFamily="Montserrat"                             
+            Margin="703,384,703,681"
+                   />
+        <DatePicker Margin="706,404,1110,638" Foreground="DarkGray" Name="txtDate" SelectedDateFormat="Short" RenderTransformOrigin="0.5,0.5" SelectedDate="{Binding DateOnCard}">
+            <DatePicker.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.321"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-2.994"/>
+                </TransformGroup>
+            </DatePicker.RenderTransform>
+            <DatePicker.BlackoutDates>
+                <CalendarDateRange Start="3/1/1970" End="06/14/2023" />
+                <CalendarDateRange Start="3/1/2027" End="06/14/2029" />
+            </DatePicker.BlackoutDates>
+        </DatePicker>
+        <TextBlock Text="Name on Card"
+            Foreground="DarkGray"
+            FontSize="12"
+            FontWeight="Medium"
+            FontFamily="Montserrat"                             
+            Margin="703,443,703,623"/>
+        <TextBox x:Name="txtnameoncard"
+            FontSize="13"
+            FontWeight="Medium"
+            FontFamily="Montserrat"                            
+            Foreground="White"
+            CaretBrush="LightGray"
+            BorderBrush="DarkGray"
+            BorderThickness="0,0,0,2"
+            VerticalContentAlignment="Center"
+            Padding="20,0,0,0"
+            Text="{Binding NameOnCard}" Background="#00000000" Margin="703,462,703,590"/>
+        <TextBlock Text="Code on Card"
+            Foreground="DarkGray"
+            FontSize="12"
+            FontWeight="Medium"
+            FontFamily="Montserrat"                             
+            Margin="703,507,703,559"/>
+        <TextBox x:Name="txtcodeoncard"
+            FontSize="13"
+            FontWeight="Medium"
+            FontFamily="Montserrat"                            
+            Foreground="White"
+            CaretBrush="LightGray"
+            BorderBrush="DarkGray"
+            BorderThickness="0,0,0,2"
+            VerticalContentAlignment="Center"
+            Padding="20,0,0,0"
+            Text="{Binding Code}" Background="#00000000" Margin="703,526,703,526"/>
+        <Button x:Name="btnapply"                          
+            BorderThickness="0"
+            Content="APPLY"
+            Foreground="White"
+            FontSize="12"
+            FontFamily="Montserrat"
+            Cursor="Hand"
+            Margin="703,582,1059,458"   Command="{Binding Apply}">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#424040"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#28AEED"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
 
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Width="150" Height="40"
+                        CornerRadius="15"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
     </Grid>
 </UserControl>

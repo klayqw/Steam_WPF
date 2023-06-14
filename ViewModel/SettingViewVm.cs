@@ -2,7 +2,6 @@
 using Steam.Models;
 using Steam.Service;
 using Steam.Service.Base;
-using Steam.View;
 using Steam.ViewModel.Base;
 using System;
 using System.Collections.Generic;
@@ -12,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Steam.ViewModel;
 
-public class MainWVM : ViewModelBase
+public class SettingViewVm : ViewModelBase
 {
     private User currentUser { get; set; }
     private double balance;
@@ -24,7 +23,7 @@ public class MainWVM : ViewModelBase
     private string avatarurl;
     public string Avatarurl
     {
-        get => avatarurl; 
+        get => avatarurl;
         set => base.PropertyChange(out avatarurl, value);
     }
     private readonly IMessenger messenger;
@@ -33,15 +32,14 @@ public class MainWVM : ViewModelBase
     public Command ToStore
     {
         get => new Command(() => ToStoreСommand());
-        set => base.PropertyChange(out  tostore, value);    
+        set => base.PropertyChange(out tostore, value);
     }
 
-
-    private Command tosettings;
-    public Command Tosettings
+    private Command toaddcard;
+    public Command Toaddcard
     {
-        get => new Command(() => App.ServiceContainer.GetInstance<GetToService>().Tosettings.Execute(null));
-        set => base.PropertyChange(out tosettings, value);
+        get => new Command(() => ToAddCardCommand());
+        set => base.PropertyChange(out toaddcard, value);
     }
 
     private void ToStoreСommand()
@@ -50,15 +48,13 @@ public class MainWVM : ViewModelBase
         this.messenger.Send(new ViewNavigate(typeof(StoreViewModel)));
     }
 
-    private void ToSettingsC()
+    private void ToAddCardCommand()
     {
         this.messenger.Send(new GetCurrentUser(currentUser));
-        this.messenger.Send(new ViewNavigate(typeof(SettingViewVm)));
+        this.messenger.Send(new ViewNavigate(typeof(AddCardVM)));
     }
 
-
-
-    public MainWVM(IMessenger messenger)
+    public SettingViewVm(IMessenger messenger)
     {
         this.messenger = messenger;
         messenger.Subscribe<GetCurrentUser>((message) =>

@@ -1,6 +1,7 @@
 ﻿using SimpleInjector;
 using Steam.Service;
 using Steam.Service.Base;
+using Steam.View;
 using Steam.ViewModel;
 using Steam.ViewModel.Base;
 using System;
@@ -51,6 +52,11 @@ public partial class App : Application
         ServiceContainer.RegisterSingleton<EmailSend>();
         ServiceContainer.RegisterSingleton<EntityFramework>();
         ServiceContainer.RegisterSingleton<MainWVM>();
+        ServiceContainer.RegisterSingleton<StoreViewModel>();
+        ServiceContainer.RegisterSingleton<GameMoreVM>();
+        ServiceContainer.RegisterSingleton<SettingViewVm>();
+        ServiceContainer.RegisterSingleton<AddCardVM>();
+        ServiceContainer.RegisterSingleton<GetToService>();
 
         ServiceContainer.Verify();
     }

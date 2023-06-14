@@ -2,7 +2,6 @@
 using Steam.Models;
 using Steam.Service;
 using Steam.Service.Base;
-using Steam.View;
 using Steam.ViewModel.Base;
 using System;
 using System.Collections.Generic;
@@ -12,9 +11,34 @@ using System.Threading.Tasks;
 
 namespace Steam.ViewModel;
 
-public class MainWVM : ViewModelBase
+public class GameMoreVM : ViewModelBase
 {
+    private Game currentGame { get; set; }
     private User currentUser { get; set; }
+    private string name;
+    public string Name
+    {
+        get => name;
+        set => base.PropertyChange(out name, value);
+    }
+    private string desc;
+    public string Desc
+    {
+        get => name;
+        set => base.PropertyChange(out desc, value);
+    }
+    private string price;
+    public string Price
+    {
+        get => price;
+        set => base.PropertyChange(out price, value);
+    }
+    private string imageUrl;
+    public string ImageUrl
+    {
+        get => imageUrl;
+        set => base.PropertyChange(out  imageUrl, value); 
+    }
     private double balance;
     public double Balance
     {
@@ -24,7 +48,7 @@ public class MainWVM : ViewModelBase
     private string avatarurl;
     public string Avatarurl
     {
-        get => avatarurl; 
+        get => avatarurl;
         set => base.PropertyChange(out avatarurl, value);
     }
     private readonly IMessenger messenger;
@@ -33,15 +57,7 @@ public class MainWVM : ViewModelBase
     public Command ToStore
     {
         get => new Command(() => ToStoreСommand());
-        set => base.PropertyChange(out  tostore, value);    
-    }
-
-
-    private Command tosettings;
-    public Command Tosettings
-    {
-        get => new Command(() => App.ServiceContainer.GetInstance<GetToService>().Tosettings.Execute(null));
-        set => base.PropertyChange(out tosettings, value);
+        set => base.PropertyChange(out tostore, value);
     }
 
     private void ToStoreСommand()
@@ -50,16 +66,10 @@ public class MainWVM : ViewModelBase
         this.messenger.Send(new ViewNavigate(typeof(StoreViewModel)));
     }
 
-    private void ToSettingsC()
+    public GameMoreVM(IMessenger messenger)
     {
-        this.messenger.Send(new GetCurrentUser(currentUser));
-        this.messenger.Send(new ViewNavigate(typeof(SettingViewVm)));
-    }
+        this.messenger = messenger;
 
-
-
-    public MainWVM(IMessenger messenger)
-    {
         this.messenger = messenger;
         messenger.Subscribe<GetCurrentUser>((message) =>
         {
@@ -68,6 +78,17 @@ public class MainWVM : ViewModelBase
                 currentUser = user.User;
                 Avatarurl = currentUser.AvatarUrl;
                 Balance = currentUser.Card.Balance;
+            }
+        });
+        messenger.Subscribe<GetCurrentGame>((message) =>
+        {
+            if (message is GetCurrentGame game)
+            {
+                currentGame = game.Game;
+                ImageUrl = currentGame.ImageUrl;
+                Name = currentGame.Name;
+                Desc = currentGame.Desc;
+                Price = currentGame.Price.ToString();
             }
         });
 

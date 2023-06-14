@@ -39,32 +39,8 @@ public class GameMoreVM : ViewModelBase
         get => imageUrl;
         set => base.PropertyChange(out  imageUrl, value); 
     }
-    private double balance;
-    public double Balance
-    {
-        get => balance;
-        set => base.PropertyChange(out balance, value);
-    }
-    private string avatarurl;
-    public string Avatarurl
-    {
-        get => avatarurl;
-        set => base.PropertyChange(out avatarurl, value);
-    }
+   
     private readonly IMessenger messenger;
-
-    private Command tostore;
-    public Command ToStore
-    {
-        get => new Command(() => ToStoreСommand());
-        set => base.PropertyChange(out tostore, value);
-    }
-
-    private void ToStoreСommand()
-    {
-        this.messenger.Send(new GetCurrentUser(currentUser));
-        this.messenger.Send(new ViewNavigate(typeof(StoreViewModel)));
-    }
 
     public GameMoreVM(IMessenger messenger)
     {
@@ -76,8 +52,6 @@ public class GameMoreVM : ViewModelBase
             if (message is GetCurrentUser user)
             {
                 currentUser = user.User;
-                Avatarurl = currentUser.AvatarUrl;
-                Balance = currentUser.Card.Balance;
             }
         });
         messenger.Subscribe<GetCurrentGame>((message) =>

@@ -76,6 +76,193 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
+            <Button x:Name="btnLogin"                          
+                BorderThickness="0"
+                Content="STORE"
+                Foreground="White"
+                FontSize="12"
+                FontFamily="Montserrat"
+                Cursor="Hand"
+                Margin="10,35,1752,1005"
+                Command="{Binding ToStore}"
+                Visibility="{Binding Hood}">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#424040"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#28AEED"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="150" Height="40"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="btnlibary"                          
+                BorderThickness="0"
+                Content="LIBARY"
+                Foreground="White"
+                FontSize="12"
+                FontFamily="Montserrat"
+                Cursor="Hand"
+                Margin="173,35,1589,1005"
+                Visibility="{Binding Hood}">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#424040"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#28AEED"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="150" Height="40"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="btnworkshop"                          
+                BorderThickness="0"
+                Content="WORKSHOP"
+                Foreground="White"
+                FontSize="12"
+                FontFamily="Montserrat"
+                Cursor="Hand"
+                Margin="336,35,1426,1005"
+                     Visibility="{Binding Hood}">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#424040"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#28AEED"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="150" Height="40"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="btnhome"                          
+                BorderThickness="0"
+                Content="HOME"
+                Foreground="White"
+                FontSize="12"
+                FontFamily="Montserrat"
+                Cursor="Hand"
+                Margin="494,35,1268,1005"
+                     Visibility="{Binding Hood}">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#424040"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#28AEED"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="150" Height="40"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="btnsetting"                          
+                BorderThickness="0"
+                Content="SETTINGS"
+                Foreground="White"
+                FontSize="12"
+                FontFamily="Montserrat"
+                Cursor="Hand"
+                Margin="652,35,1110,1005"
+                Command="{Binding Tosettings}"
+                Visibility="{Binding Hood}">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#424040"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#28AEED"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="150" Height="40"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="btnavatar"                          
+                BorderThickness="0"
+                Foreground="White"
+                FontSize="12"
+                FontFamily="Montserrat"
+                Cursor="Hand"
+                Margin="1688,29,156,979"
+                 Visibility="{Binding Hood}">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#424040"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#28AEED"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="70" Height="70"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <Image Source="{Binding Avatarurl}" Height="52" Width="60"  Visibility="{Binding Hood}"/>
+            </Button>
+            <Label Content="Balance" Margin="1764,48,79,998" FontSize="20" Foreground="#424040"  Visibility="{Binding Hood}"/>
+            <Label Content="{Binding Balance}" Margin="1764,77,112,968" FontSize="15" Foreground="#424040"  Visibility="{Binding Hood}"/>
         </Grid>
     </Border>
 </Window>

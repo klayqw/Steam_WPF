@@ -10,7 +10,7 @@ namespace Steam.Service;
 
 public class EntityFramework : DbContext
 {
-    private const string connectionString = $"Server=localhost;Database=TestSteam;Trusted_Connection=True;TrustServerCertificate=True;";
+    private const string connectionString = $"Server=localhost;Database=TestSteam;User Id = admin;Password = admin;TrustServerCertificate=True;";
     public DbSet<User> Users { get; set; }
     public DbSet<Card> Cards { get; set; }
     public DbSet<Comment> Comments { get; set; }

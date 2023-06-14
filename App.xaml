@@ -28,5 +28,8 @@
         <DataTemplate DataType="{x:Type vm:SettingViewVm}">
             <v:SettingView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AddBalanceVM}">
+            <v:AddBalance/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

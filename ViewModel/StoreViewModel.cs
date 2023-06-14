@@ -27,38 +27,11 @@ public class StoreViewModel : ViewModelBase
         set => base.PropertyChange(out game, value);
     }
 
-     private double balance;
-    public double Balance
-    {
-        get => balance;
-        set => base.PropertyChange(out balance, value);
-    }
-    private string avatarurl;
-    public string Avatarurl
-    {
-        get => avatarurl; 
-        set => base.PropertyChange(out avatarurl, value);
-    }
-
     private Command more;
     public Command More
     {
         get => new Command(() => ShowMore());
         set => base.PropertyChange(out  more, value);    
-    }
-
-
-    private Command tosettings;
-    public Command Tosettings
-    {
-        get => new Command(() => ToSettingsC());
-        set => base.PropertyChange(out tosettings, value);
-    }
-
-    private void ToSettingsC()
-    {
-        this.messenger.Send(new GetCurrentUser(currentUser));
-        this.messenger.Send(new ViewNavigate(typeof(SettingViewVm)));
     }
 
     private void ShowMore()
@@ -78,8 +51,6 @@ public class StoreViewModel : ViewModelBase
             if (message is GetCurrentUser user)
             {
                 currentUser = user.User;
-                Avatarurl = currentUser.AvatarUrl;
-                Balance = currentUser.Card.Balance;
             }
         });
     }

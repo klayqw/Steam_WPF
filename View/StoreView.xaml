@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i ="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:local="clr-namespace:Steam.View"
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920"
@@ -12,184 +13,12 @@
             <ImageBrush ImageSource="/Assets/Images/background.png">
             </ImageBrush>
         </Grid.Background>
-        <Button x:Name="btnLogin"                          
-            BorderThickness="0"
-            Content="STORE"
-            Foreground="White"
-            FontSize="12"
-            FontFamily="Montserrat"
-            Cursor="Hand"
-            Margin="10,11,1752,1029">
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="#424040"/>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#28AEED"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-
-            </Button.Style>
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Width="150" Height="40"
-                        CornerRadius="15"
-                        Background="{TemplateBinding Background}">
-                        <ContentPresenter VerticalAlignment="Center"
-                            HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="btnlibary"                          
-            BorderThickness="0"
-            Content="LIBARY"
-            Foreground="White"
-            FontSize="12"
-            FontFamily="Montserrat"
-            Cursor="Hand"
-            Margin="173,11,1589,1029">
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="#424040"/>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#28AEED"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-
-            </Button.Style>
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Width="150" Height="40"
-                        CornerRadius="15"
-                        Background="{TemplateBinding Background}">
-                        <ContentPresenter VerticalAlignment="Center"
-                            HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="btnworkshop"                          
-            BorderThickness="0"
-            Content="WORKSHOP"
-            Foreground="White"
-            FontSize="12"
-            FontFamily="Montserrat"
-            Cursor="Hand"
-            Margin="336,11,1426,1029">
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="#424040"/>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#28AEED"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-
-            </Button.Style>
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Width="150" Height="40"
-                        CornerRadius="15"
-                        Background="{TemplateBinding Background}">
-                        <ContentPresenter VerticalAlignment="Center"
-                            HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="btnhome"                          
-            BorderThickness="0"
-            Content="HOME"
-            Foreground="White"
-            FontSize="12"
-            FontFamily="Montserrat"
-            Cursor="Hand"
-            Margin="494,11,1268,1029">
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="#424040"/>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#28AEED"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Width="150" Height="40"
-                        CornerRadius="15"
-                        Background="{TemplateBinding Background}">
-                        <ContentPresenter VerticalAlignment="Center"
-                            HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="btnavatar"                          
-            BorderThickness="0"
-            Foreground="White"
-            FontSize="12"
-            FontFamily="Montserrat"
-            Cursor="Hand"
-            Margin="1738,11,106,997">
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="#424040"/>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#28AEED"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Width="70" Height="70"
-                        CornerRadius="15"
-                        Background="{TemplateBinding Background}">
-                        <ContentPresenter VerticalAlignment="Center"
-                            HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-            <Image Source="{Binding Avatarurl}" Height="52" Width="60"/>
-        </Button>
-        <Button x:Name="btnsetting"                          
-            BorderThickness="0"
-            Content="SETTINGS"
-            Foreground="White"
-            FontSize="12"
-            FontFamily="Montserrat"
-            Cursor="Hand"
-            Margin="652,11,1110,1029">
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="#424040"/>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#28AEED"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Width="150" Height="40"
-                        CornerRadius="15"
-                        Background="{TemplateBinding Background}">
-                        <ContentPresenter VerticalAlignment="Center"
-                            HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
         <ListView ItemsSource="{Binding Games}" Margin="0,88,320,10" Background="Transparent" SelectedItem="{Binding Game}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding More}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -201,16 +30,9 @@
 
 
                         <StackPanel Grid.Column="2">
-                            <Image Source="{Binding ImageUrl}" />
+                            <Image Source="{Binding ImageUrl}" Width="200" Height="200"/>
                             <TextBlock Margin="5" FontSize="18" Text="Name"/>
-                            <TextBlock Margin="5" FontSize="26" Text="{Binding Name}">
-                                <TextBlock.InputBindings>
-                                    <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding DoubleClick,
-                                        RelativeSource={RelativeSource FindAncestor, 
-                                        AncestorType={x:Type UserControl}}}"
-                                      CommandParameter="{Binding .}"/>
-                                </TextBlock.InputBindings>
-                            </TextBlock>
+                            <TextBlock Margin="5" FontSize="26" Text="{Binding Name}"/>
                             <TextBlock Margin="5" FontSize="18" Text="Desc"/>
                             <TextBlock Margin="5" FontSize="26" Text="{Binding Desc}"/>
                             <TextBlock Margin="5" FontSize="18" Text="Price"/>
@@ -220,8 +42,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Label Content="Balance" Margin="1814,30,29,1016" FontSize="20" Foreground="#424040"/>
-        <Label Content="{Binding Balance}" Margin="1814,59,62,986" FontSize="15" Foreground="#424040"/>
         <Button x:Name="btncheckmore"                          
             BorderThickness="0"
             Content="CHECK MORE"

@@ -14,26 +14,8 @@ namespace Steam.ViewModel;
 public class SettingViewVm : ViewModelBase
 {
     private User currentUser { get; set; }
-    private double balance;
-    public double Balance
-    {
-        get => balance;
-        set => base.PropertyChange(out balance, value);
-    }
-    private string avatarurl;
-    public string Avatarurl
-    {
-        get => avatarurl;
-        set => base.PropertyChange(out avatarurl, value);
-    }
+    
     private readonly IMessenger messenger;
-
-    private Command tostore;
-    public Command ToStore
-    {
-        get => new Command(() => ToStoreСommand());
-        set => base.PropertyChange(out tostore, value);
-    }
 
     private Command toaddcard;
     public Command Toaddcard
@@ -42,16 +24,22 @@ public class SettingViewVm : ViewModelBase
         set => base.PropertyChange(out toaddcard, value);
     }
 
-    private void ToStoreСommand()
+    private Command toupdatebalance;
+    public Command Toupdatebalance
     {
-        this.messenger.Send(new GetCurrentUser(currentUser));
-        this.messenger.Send(new ViewNavigate(typeof(StoreViewModel)));
+        get => new Command(() => ToUpdateBalance());
+        set => base.PropertyChange(out toaddcard, value);
     }
-
     private void ToAddCardCommand()
     {
         this.messenger.Send(new GetCurrentUser(currentUser));
         this.messenger.Send(new ViewNavigate(typeof(AddCardVM)));
+    }
+
+    private void ToUpdateBalance()
+    {
+        this.messenger.Send(new GetCurrentUser(currentUser));
+        this.messenger.Send(new ViewNavigate(typeof(AddBalanceVM)));
     }
 
     public SettingViewVm(IMessenger messenger)
@@ -62,8 +50,6 @@ public class SettingViewVm : ViewModelBase
             if (message is GetCurrentUser user)
             {
                 currentUser = user.User;
-                Avatarurl = currentUser.AvatarUrl;
-                Balance = currentUser.Card.Balance;
             }
         });
 

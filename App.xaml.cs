@@ -56,7 +56,8 @@ public partial class App : Application
         ServiceContainer.RegisterSingleton<GameMoreVM>();
         ServiceContainer.RegisterSingleton<SettingViewVm>();
         ServiceContainer.RegisterSingleton<AddCardVM>();
-        ServiceContainer.RegisterSingleton<GetToService>();
+        ServiceContainer.RegisterSingleton<AddBalanceVM>();
+
 
         ServiceContainer.Verify();
     }

@@ -42,32 +42,7 @@ public class AddCardVM : ViewModelBase
         set => base.PropertyChange(out code, value);
     }
 
-    private double balance;
-    public double Balance
-    {
-        get => balance;
-        set => base.PropertyChange(out balance, value);
-    }
-    private string avatarurl;
-    public string Avatarurl
-    {
-        get => avatarurl;
-        set => base.PropertyChange(out avatarurl, value);
-    }
     private readonly IMessenger messenger;
-
-    private Command tostore;
-    public Command ToStore
-    {
-        get => new Command(() => ToStoreСommand());
-        set => base.PropertyChange(out tostore, value);
-    }
-
-    private void ToStoreСommand()
-    {
-        this.messenger.Send(new GetCurrentUser(currentUser));
-        this.messenger.Send(new ViewNavigate(typeof(StoreViewModel)));
-    }
 
     private Command apply;
     public Command Apply
@@ -106,8 +81,6 @@ public class AddCardVM : ViewModelBase
             if (message is GetCurrentUser user)
             {
                 currentUser = user.User;
-                Avatarurl = currentUser.AvatarUrl;
-                Balance = currentUser.Card.Balance;
             }
         });
 

@@ -1,21 +1,21 @@
-﻿<UserControl x:Class="Steam.View.GameMore"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Steam.View"
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors" x:Class="Steam.View.GameMore"
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920"
              Background="#262323">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Assets/Images/background.png">
-            </ImageBrush>
+            <ImageBrush ImageSource="/Assets/Images/background.png"/>
         </Grid.Background>
         <Image Source="{Binding ImageUrl}" Margin="45,80,1505,666"/>
-        <Label Content="{Binding Name}" Margin="448,108,1268,883" FontSize="50"/>
-        <Label Margin="254,309,578,309" FontSize="30"/>
-        <Label Content="{Binding Price}" Margin="1332,108,384,883" FontSize="50"/>
+        <Label Content="{Binding Name}" Margin="448,152,1268,838" FontSize="50" Foreground="DarkGray"/>
+        <Label Content ="{Binding Desc}" Margin="448,351,486,427" FontSize="30" Foreground="DarkGray"/>
+        <Label Content="{Binding Price}" Margin="1332,152,384,839" FontSize="50" Foreground="DarkGray"/>
         <Button x:Name="btnbuy"                          
                 BorderThickness="0"
                 Content="BUY"
@@ -45,6 +45,60 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
+        <Label Content="PRICE" Margin="1332,62,384,928" FontSize="50" Foreground="White"/>
+        <Label Content="DESC" Margin="230,450,1486,540" FontSize="50" Foreground="White"/>
+        <Label Content="NAME" Margin="448,62,1268,928" FontSize="50" Foreground="White"/>
+        <TextBox Text="{Binding Leavecomment}" Margin="467,746,680,291" />
+        <Label Content="COMMENT" Margin="467,658,1145,332" FontSize="50" Foreground="White"/>
+        <Button x:Name="btnsendcomment"                          
+            BorderThickness="0"
+            Content="SEND COMMENT"
+            Foreground="White"
+            FontSize="12"
+            FontFamily="Montserrat"
+            Cursor="Hand"
+            Command="{Binding Send}" Margin="1276,748,486,292">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#424040"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#28AEED"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Width="150" Height="40"
+                        CornerRadius="15"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <ListView ItemsSource="{Binding Comments}" Background="Transparent" Margin="467,794,680,0" Height="258" VerticalAlignment="Top">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="2">
+                            <Image Source="{Binding User.AvatarUrl}" Width="100" Height="100"/>
+                            <TextBlock Margin="5" FontSize="10" Text="{Binding User.Nickname}"/>
+                            <TextBlock Margin="5" FontSize="15" Text="{Binding Text}"/>
+                            <TextBlock Margin="5" FontSize="10" Text="{Binding Time}"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
 
     </Grid>

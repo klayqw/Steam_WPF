@@ -13,9 +13,9 @@
             <ImageBrush ImageSource="/Assets/Images/background.png">
             </ImageBrush>
         </Grid.Background>
-        <ListView ItemsSource="{Binding GamesLib}" Margin="0,88,1526,10" Background="Transparent" SelectedItem="{Binding Game}">
+        <ListView ItemsSource="{Binding GamesLib}" Margin="0,88,1526,10" Background="Transparent" SelectedItem="{Binding currentGame}">
             <i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseDoubleClick">
+                <i:EventTrigger EventName="SelectionChanged">
                     <i:InvokeCommandAction Command="{Binding More}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
@@ -42,6 +42,10 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Image Source="{Binding ImageUrl}" Margin="429,92,1143,654"/>
+        <Label Content="{Binding Name}" Margin="808,164,920,826" FontSize="50" Foreground="DarkGray"/>
+        <Label Content ="{Binding Desc}" Margin="808,363,185,415" FontSize="30" Foreground="DarkGray"/>
+        <Label Content="{Binding Price}" Margin="1639,164,90,827" FontSize="50" Foreground="DarkGray"/>
 
     </Grid>
 </UserControl>

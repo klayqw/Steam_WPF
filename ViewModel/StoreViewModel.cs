@@ -36,6 +36,10 @@ public class StoreViewModel : ViewModelBase
 
     private void ShowMore()
     {
+        if (Game == null)
+        {
+            return;
+        }
         messenger.Send(new GetCurrentGame(Game));
         messenger.Send(new ViewNavigate(typeof(GameMoreVM)));
     }

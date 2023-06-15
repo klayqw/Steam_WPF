@@ -5,6 +5,7 @@ using Steam.Service.Base;
 using Steam.ViewModel.Base;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,14 @@ namespace Steam.ViewModel;
 
 public class GameMoreVM : ViewModelBase
 {
+    public ObservableCollection<Comment> Comments { get; set; } = new ObservableCollection<Comment>();
+
+    private string leavecomment;
+    public string Leavecomment
+    {
+        get => leavecomment;
+        set => base.PropertyChange(out leavecomment, value);
+    }
     private Game currentGame { get; set; }
     private User currentUser { get; set; }
     private string name;
@@ -50,6 +59,28 @@ public class GameMoreVM : ViewModelBase
         set => base.PropertyChange(out buy, value);
     }
 
+    private Command send;
+    public Command Send
+    {
+        get => new Command(() => SendCommand());
+        set => base.PropertyChange(out send, value);
+    }
+
+    private void SendCommand()
+    {
+        App.ServiceContainer.GetInstance<EntityFramework>().Comments.Add(new Comment()
+        {
+            Text = Leavecomment,
+            Time = DateTime.Now,
+            UserId = currentUser.Id,
+            GameId = currentGame.Id,
+        });
+
+        App.ServiceContainer.GetInstance<EntityFramework>().SaveChanges();
+        Leavecomment = "";
+        Update();
+    }
+
     private void BuyCommand()
     {
         var query = App.ServiceContainer.GetInstance<EntityFramework>().Cards.Where(x => x.Id == currentUser.CardId).ToList();
@@ -78,6 +109,23 @@ public class GameMoreVM : ViewModelBase
         return;
     }
 
+    private void Update()
+    {
+        Comments.Clear();
+        var comments = App.ServiceContainer.GetInstance<EntityFramework>().Comments.ToList();
+        var user = App.ServiceContainer.GetInstance<EntityFramework>().Users.ToList();
+        foreach (var item in user)
+        {
+            foreach(var items in comments)
+            {
+                if (item.Id == items.UserId && items.GameId == currentGame.Id)
+                {
+                    Comments.Add(items);
+                }
+            }
+        }
+    }
+
 
 
     public GameMoreVM(IMessenger messenger)
@@ -101,6 +149,7 @@ public class GameMoreVM : ViewModelBase
                 Name = currentGame.Name;
                 Desc = currentGame.Desc;
                 Price = currentGame.Price.ToString();
+                Update();
             }
         });
 

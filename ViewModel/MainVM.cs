@@ -88,6 +88,7 @@ class MainVM : ViewModelBase
     {
         this.messenger.Send(new GetCurrentUser(currentUser));
         this.messenger.Send(new ViewNavigate(typeof(ProfileVm)));
+        this.messenger.Send(new UpdateLibary());
     }
 
     private void ToLib()

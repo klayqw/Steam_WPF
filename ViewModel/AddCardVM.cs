@@ -53,15 +53,17 @@ public class AddCardVM : ViewModelBase
 
     private void ApplyCommand()
     {
+        var query = App.ServiceContainer.GetInstance<EntityFramework>().Cards.Where(x => x.Id == currentUser.CardId).ToList();
+        currentUser.Card = query.First();
         try
         {
-            currentUser.Card = new Card()
-            {
-                NameOnCard = NameOnCard,
-                Code = int.Parse(Code),
-                CardNumber = NumberOnCard,
-                Validity = DateOnCard,
-            };
+
+
+            currentUser.Card.CardNumber = NumberOnCard;
+            currentUser.Card.Validity = DateOnCard;
+            currentUser.Card.Code = int.Parse(Code);
+            currentUser.Card.NameOnCard = NameOnCard;
+            currentUser.Card.Balance = 0;
             App.ServiceContainer.GetInstance<EntityFramework>().SaveChanges();
         }
         catch(Exception ex)

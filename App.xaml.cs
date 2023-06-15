@@ -57,7 +57,9 @@ public partial class App : Application
         ServiceContainer.RegisterSingleton<SettingViewVm>();
         ServiceContainer.RegisterSingleton<AddCardVM>();
         ServiceContainer.RegisterSingleton<AddBalanceVM>();
-
+        ServiceContainer.RegisterSingleton<EditProfilVM>();
+        ServiceContainer.RegisterSingleton<ProfileVm>();
+        ServiceContainer.RegisterSingleton<LibaryVm>();
 
         ServiceContainer.Verify();
     }

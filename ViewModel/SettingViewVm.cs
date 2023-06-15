@@ -24,6 +24,13 @@ public class SettingViewVm : ViewModelBase
         set => base.PropertyChange(out toaddcard, value);
     }
 
+    private Command toeditprofile;
+    public Command Toeditprofile
+    {
+        get => new Command(() => ToProfileUpdate());
+        set => base.PropertyChange(out toaddcard, value);
+    }
+
     private Command toupdatebalance;
     public Command Toupdatebalance
     {
@@ -40,6 +47,12 @@ public class SettingViewVm : ViewModelBase
     {
         this.messenger.Send(new GetCurrentUser(currentUser));
         this.messenger.Send(new ViewNavigate(typeof(AddBalanceVM)));
+    }
+
+    private void ToProfileUpdate()
+    {
+        this.messenger.Send(new GetCurrentUser(currentUser));
+        this.messenger.Send(new ViewNavigate(typeof(EditProfilVM)));
     }
 
     public SettingViewVm(IMessenger messenger)

@@ -44,7 +44,13 @@
     <Compile Update="View\AddCard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\Profile.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\SettingView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Libary.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\StoreView.xaml.cs">

@@ -34,17 +34,20 @@ public class AddBalanceVM : ViewModelBase
 
     private void ApplyCommand()
     {
+        var query = App.ServiceContainer.GetInstance<EntityFramework>().Cards.Where(x => x.Id == currentUser.CardId).ToList();
+        currentUser.Card = query.First();
         foreach(var item in HowMuch)
         {
             if (char.IsLetter(item))
             {
-                MessageBox.Show("error");
+                MessageBox.Show("error1");
                 return;
             }
         }
         if(currentUser.Card.CardNumber == null)
         {
-            MessageBox.Show("error");
+            Console.WriteLine();
+            MessageBox.Show("error2");
             return;
         }
         currentUser.Card.Balance += double.Parse(HowMuch);

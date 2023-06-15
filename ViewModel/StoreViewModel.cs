@@ -41,6 +41,7 @@ public class StoreViewModel : ViewModelBase
     }
     public ObservableCollection<Game> Games { get; set; } = new ObservableCollection<Game>();
 
+
     public StoreViewModel(IMessenger messanger)
     {
         this.messenger = messanger;

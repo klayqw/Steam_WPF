@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i ="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:local="clr-namespace:Steam.View"
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920"
@@ -12,5 +13,241 @@
             <ImageBrush ImageSource="/Assets/Images/background.png">
             </ImageBrush>
         </Grid.Background>
+        <TextBlock Text="Username"
+            Foreground="DarkGray"
+            FontSize="12"
+            FontWeight="Medium"
+            FontFamily="Montserrat"                             
+                               Margin="703,306,703,760"/>
+        <TextBox x:Name="txtUser"
+            FontSize="13"
+            FontWeight="Medium"
+            FontFamily="Montserrat"                            
+            Foreground="White"
+            CaretBrush="LightGray"
+            BorderBrush="DarkGray"
+            BorderThickness="0,0,0,2"
+            VerticalContentAlignment="Center"
+            Padding="20,0,0,0"
+            Text="{Binding Login}" Background="#00000000" Margin="703,324,703,728"/>
+        <TextBlock Text="Password"
+            Foreground="DarkGray"
+            FontSize="12"
+            FontWeight="Medium"
+            FontFamily="Montserrat"                             
+                               Margin="703,368,703,698"/>
+        <TextBox x:Name="txtPass"
+            FontSize="13"
+            FontWeight="Medium"
+            FontFamily="Montserrat"                            
+            Foreground="White"
+            CaretBrush="LightGray"
+            BorderBrush="DarkGray"
+            BorderThickness="0,0,0,2"
+            VerticalContentAlignment="Center"
+            Padding="20,0,0,0"
+            Text="{Binding Password}" Background="#00000000" Margin="703,388,703,664"/>
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Images/background.png"/>
+            </Grid.Background>
+            <TextBlock Text="Username"
+                Foreground="DarkGray"
+                FontSize="12"
+                FontWeight="Medium"
+                FontFamily="Montserrat"                             
+                Margin="703,306,703,760"/>
+            <TextBox x:Name="txtUser1"
+                FontSize="13"
+                FontWeight="Medium"
+                FontFamily="Montserrat"                            
+                Foreground="White"
+                CaretBrush="LightGray"
+                BorderBrush="DarkGray"
+                BorderThickness="0,0,0,2"
+                VerticalContentAlignment="Center"
+                Padding="20,0,0,0"
+                Text="{Binding Login}" Background="#00000000" Margin="703,324,703,728"/>
+            <TextBlock Text="Email"
+                Foreground="DarkGray"
+                FontSize="12"
+                FontWeight="Medium"
+                FontFamily="Montserrat"                             
+                Margin="703,368,703,698"/>
+            <TextBox x:Name="txtemail"
+                FontSize="13"
+                FontWeight="Medium"
+                FontFamily="Montserrat"                            
+                Foreground="White"
+                CaretBrush="LightGray"
+                BorderBrush="DarkGray"
+                BorderThickness="0,0,0,2"
+                VerticalContentAlignment="Center"
+                Padding="20,0,0,0"
+                Text="{Binding Password}" Background="#00000000" Margin="703,388,703,664"/>
+            <TextBlock Text="Password"
+                Foreground="DarkGray"
+                FontSize="12"
+                FontWeight="Medium"
+                FontFamily="Montserrat"                             
+                Margin="703,432,703,634"/>
+            <TextBox x:Name="txtPass1_Copy"
+                FontSize="13"
+                FontWeight="Medium"
+                FontFamily="Montserrat"                            
+                Foreground="White"
+                CaretBrush="LightGray"
+                BorderBrush="DarkGray"
+                BorderThickness="0,0,0,2"
+                VerticalContentAlignment="Center"
+                Padding="20,0,0,0"
+                Text="{Binding Password}" Background="#00000000" Margin="703,452,703,600"/>
+            <TextBlock Text="Password"
+                Foreground="DarkGray"
+                FontSize="12"
+                FontWeight="Medium"
+                FontFamily="Montserrat"                             
+                Margin="703,506,703,560"/>
+            <TextBox x:Name="txtPass1_Copy1"
+                FontSize="13"
+                FontWeight="Medium"
+                FontFamily="Montserrat"                            
+                Foreground="White"
+                CaretBrush="LightGray"
+                BorderBrush="DarkGray"
+                BorderThickness="0,0,0,2"
+                VerticalContentAlignment="Center"
+                Padding="20,0,0,0"
+                Text="{Binding Password}" Background="#00000000" Margin="703,526,703,526"/>
+            <Grid>
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/Images/background.png"/>
+                </Grid.Background>
+                <TextBlock Text="Username"
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                             
+                    Margin="703,306,703,760"/>
+                <TextBox x:Name="txtUser2"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                            
+                    Foreground="White"
+                    CaretBrush="LightGray"
+                    BorderBrush="DarkGray"
+                    BorderThickness="0,0,0,2"
+                    VerticalContentAlignment="Center"
+                    Padding="20,0,0,0"
+                    Text="{Binding Username}" Background="#00000000" Margin="703,324,703,728"/>
+                <TextBlock Text="Email"
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                             
+                    Margin="703,368,703,698"/>
+                <TextBox x:Name="txtemail1"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                            
+                    Foreground="White"
+                    CaretBrush="LightGray"
+                    BorderBrush="DarkGray"
+                    BorderThickness="0,0,0,2"
+                    VerticalContentAlignment="Center"
+                    Padding="20,0,0,0"
+                    Text="{Binding Email}" Background="#00000000" Margin="703,388,703,664"/>
+                <TextBlock Text="AvatarUrl"
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                             
+                    Margin="703,432,703,634"/>
+                <TextBox x:Name="txtPass1_Copy2"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                            
+                    Foreground="White"
+                    CaretBrush="LightGray"
+                    BorderBrush="DarkGray"
+                    BorderThickness="0,0,0,2"
+                    VerticalContentAlignment="Center"
+                    Padding="20,0,0,0"
+                    Text="{Binding AvatarUrl}" Background="#00000000" Margin="703,452,703,600"/>
+                <TextBlock Text="Password"
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                             
+                    Margin="703,506,703,560"/>
+                <TextBox x:Name="txtPass1_Copy3"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                            
+                    Foreground="White"
+                    CaretBrush="LightGray"
+                    BorderBrush="DarkGray"
+                    BorderThickness="0,0,0,2"
+                    VerticalContentAlignment="Center"
+                    Padding="20,0,0,0"
+                    Text="{Binding Password}" Background="#00000000" Margin="703,526,703,526"/>
+                <TextBlock Text="Code from new email"
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                             
+                    Margin="703,570,703,496"/>
+                <TextBox x:Name="txtPass1_Copy4"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                            
+                    Foreground="White"
+                    CaretBrush="LightGray"
+                    BorderBrush="DarkGray"
+                    BorderThickness="0,0,0,2"
+                    VerticalContentAlignment="Center"
+                    Padding="20,0,0,0"
+                    Text="{Binding Code}" Background="#00000000" Margin="703,590,703,462"/>
+                <Button x:Name="btnapply"                          
+                    BorderThickness="0"
+                    Content="APPLY"
+                    Foreground="White"
+                    FontSize="12"
+                    FontFamily="Montserrat"
+                    Cursor="Hand"
+                    Margin="703,646,1059,394"   Command="{Binding Apply}">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#424040"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#28AEED"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="150" Height="40"
+                                CornerRadius="15"
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <CheckBox Content="Use old nickname" FontSize="18"  Foreground="DarkGray" Margin="1291,338,444,705" Command="{Binding UseOldNickname}"/>
+                <CheckBox Content="Use old email" FontSize="18"  Foreground="DarkGray" Margin="1291,375,444,668" Command="{Binding Useoldemail}"/>
+                <CheckBox Content="Use old avatarurl" FontSize="18"  Foreground="DarkGray" Margin="1291,454,444,589" Command="{Binding Useoldavatarurl}"/>
+                <CheckBox Content="Use old password" FontSize="18"  Foreground="DarkGray" Margin="1291,412,444,631" Command="{Binding Useoldpassword}"/>
+
+            </Grid>
+
+
+        </Grid>
+
+
     </Grid>
 </UserControl>

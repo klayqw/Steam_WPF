@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Steam.Service;
 
@@ -11,9 +12,11 @@ using Steam.Service;
 namespace Steam.Migrations
 {
     [DbContext(typeof(EntityFramework))]
-    partial class EntityFrameworkModelSnapshot : ModelSnapshot
+    [Migration("20230615080036_up3")]
+    partial class up3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -14,4 +14,5 @@ public class Game
     public double Price { get; set; }
     public string ImageUrl { get; set; }
     public List<Comment> GameComments { get; set; } = new List<Comment>();
+    public List<UserGames> UserGames { get; set; } = new List<UserGames>();
 }

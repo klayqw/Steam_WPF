@@ -14,8 +14,37 @@
         </Grid.Background>
         <Image Source="{Binding ImageUrl}" Margin="45,80,1505,666"/>
         <Label Content="{Binding Name}" Margin="448,108,1268,883" FontSize="50"/>
-        <Label Content="{Binding Desc}" Margin="448,202,384,416" FontSize="30"/>
+        <Label Margin="254,309,578,309" FontSize="30"/>
         <Label Content="{Binding Price}" Margin="1332,108,384,883" FontSize="50"/>
+        <Button x:Name="btnbuy"                          
+                BorderThickness="0"
+                Content="BUY"
+                Foreground="White"
+                FontSize="12"
+                FontFamily="Montserrat"
+                Cursor="Hand"
+                Command="{Binding Buy}" Margin="1676,994,86,46">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#424040"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#28AEED"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Width="150" Height="40"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
 
     </Grid>

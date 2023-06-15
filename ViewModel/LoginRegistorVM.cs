@@ -83,6 +83,8 @@ public class LoginRegistorVM : ViewModelBase
         if (App.ServiceContainer.GetInstance<EntityFramework>().Users.Any(x => x.Login == login && x.Password == password))
         {
             user = App.ServiceContainer.GetInstance<EntityFramework>().Users.FirstOrDefault(x => x.Login == login && x.Password == password);
+            var query = App.ServiceContainer.GetInstance<EntityFramework>().Cards.Where(x => x.Id == user.CardId).ToList();
+            user.Card = query.First();
             WelcomeVisibility = Visibility.Visible;
             SendUser.Execute(null);
             Mainview.Execute(null);

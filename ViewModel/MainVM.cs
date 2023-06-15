@@ -50,12 +50,26 @@ class MainVM : ViewModelBase
         set => base.PropertyChange(out tostore, value);
     }
 
+    private Command toprofile;
+    public Command Toprofile
+    {
+        get => new Command(() => ToProfile());
+        set => base.PropertyChange(out tosettings, value);
+    }
+
 
     private Command tosettings;
     public Command Tosettings
     {
         get => new Command(() => ToSettingsC());
         set => base.PropertyChange(out tosettings, value);
+    }
+
+    private Command tolib;
+    public Command Tolib
+    {
+        get => new Command(() => ToLib());
+        set => base.PropertyChange(out tolib, value);
     }
 
     private void ToStoreСommand()
@@ -68,6 +82,19 @@ class MainVM : ViewModelBase
     {
         this.messenger.Send(new GetCurrentUser(currentUser));
         this.messenger.Send(new ViewNavigate(typeof(SettingViewVm)));
+    }
+
+    private void ToProfile()
+    {
+        this.messenger.Send(new GetCurrentUser(currentUser));
+        this.messenger.Send(new ViewNavigate(typeof(ProfileVm)));
+    }
+
+    private void ToLib()
+    {
+        this.messenger.Send(new GetCurrentUser(currentUser));
+        this.messenger.Send(new ViewNavigate(typeof(LibaryVm)));
+        this.messenger.Send(new UpdateLibary());
     }
 
 

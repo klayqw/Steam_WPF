@@ -81,7 +81,8 @@
             FontSize="12"
             FontFamily="Montserrat"
             Cursor="Hand"
-            Margin="10,216,1752,824">
+            Margin="10,216,1752,824"
+            Command="{Binding Toeditprofile}">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="#424040"/>

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Steam"
+        xmlns:local="clr-namespace:Steam" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
@@ -116,7 +116,8 @@
                 FontFamily="Montserrat"
                 Cursor="Hand"
                 Margin="173,35,1589,1005"
-                Visibility="{Binding Hood}">
+                Visibility="{Binding Hood}"
+                 Command="{Binding Tolib}">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Background" Value="#424040"/>
@@ -170,15 +171,16 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button x:Name="btnhome"                          
+            <Button x:Name="btnprofile"                          
                 BorderThickness="0"
-                Content="HOME"
+                Content="PROFILE"
                 Foreground="White"
                 FontSize="12"
                 FontFamily="Montserrat"
                 Cursor="Hand"
                 Margin="494,35,1268,1005"
-                     Visibility="{Binding Hood}">
+                Visibility="{Binding Hood}"
+                Command="{Binding Toprofile}">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Background" Value="#424040"/>
@@ -259,7 +261,14 @@
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
-                <Image Source="{Binding Avatarurl}" Height="52" Width="60"  Visibility="{Binding Hood}"/>
+                <Image Source="{Binding Avatarurl}" Height="52" Width="60"  Visibility="{Binding Hood}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding Toprofile}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
+
             </Button>
             <Label Content="Balance" Margin="1764,48,79,998" FontSize="20" Foreground="#424040"  Visibility="{Binding Hood}"/>
             <Label Content="{Binding Balance}" Margin="1764,77,112,968" FontSize="15" Foreground="#424040"  Visibility="{Binding Hood}"/>

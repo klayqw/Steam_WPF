@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="Steam.View.Libary"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i ="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:local="clr-namespace:Steam.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920"
+             Background="#262323">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Images/background.png">
+            </ImageBrush>
+        </Grid.Background>
+        <ListView ItemsSource="{Binding GamesLib}" Margin="0,88,1526,10" Background="Transparent" SelectedItem="{Binding Game}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding More}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <StackPanel Grid.Column="2">
+                            <Image Source="{Binding ImageUrl}" Width="200" Height="200"/>
+                            <TextBlock Margin="5" FontSize="18" Text="Name"/>
+                            <TextBlock Margin="5" FontSize="26" Text="{Binding Name}"/>
+                            <TextBlock Margin="5" FontSize="18" Text="Desc"/>
+                            <TextBlock Margin="5" FontSize="26" Text="{Binding Desc}"/>
+                            <TextBlock Margin="5" FontSize="18" Text="Price"/>
+                            <TextBlock Margin="5" FontSize="26" Text="{Binding Price}"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
+</UserControl>

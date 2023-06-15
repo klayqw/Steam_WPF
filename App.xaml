@@ -31,5 +31,15 @@
         <DataTemplate DataType="{x:Type vm:AddBalanceVM}">
             <v:AddBalance/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:EditProfilVM}">
+            <v:EditProfile/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ProfileVm}">
+            <v:Profile/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:LibaryVm}">
+            <v:Libary/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

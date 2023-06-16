@@ -41,5 +41,16 @@
         <DataTemplate DataType="{x:Type vm:LibaryVm}">
             <v:Libary/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:WorkShopVm}">
+            <v:Workshop/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:AddWorkShopVm}">
+            <v:AddWorkShop/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ContentMoreVm}">
+            <v:ContentMore/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

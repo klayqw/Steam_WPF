@@ -60,6 +60,9 @@ public partial class App : Application
         ServiceContainer.RegisterSingleton<EditProfilVM>();
         ServiceContainer.RegisterSingleton<ProfileVm>();
         ServiceContainer.RegisterSingleton<LibaryVm>();
+        ServiceContainer.RegisterSingleton<WorkShopVm>();
+        ServiceContainer.RegisterSingleton<AddWorkShopVm>();
+        ServiceContainer.RegisterSingleton<ContentMoreVm>();
 
         ServiceContainer.Verify();
     }

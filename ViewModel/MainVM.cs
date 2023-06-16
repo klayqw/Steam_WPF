@@ -72,6 +72,20 @@ class MainVM : ViewModelBase
         set => base.PropertyChange(out tolib, value);
     }
 
+    private Command toWorkShop;
+    public Command ToWorkShop
+    {
+        get => new Command(() => ToWorkShopCommand());
+        set => base.PropertyChange(out toWorkShop, value);
+    }
+
+    private void ToWorkShopCommand()
+    {
+        this.messenger.Send(new GetCurrentUser(currentUser));
+        this.messenger.Send(new UpdateWorkShop());
+        this.messenger.Send(new ViewNavigate(typeof(WorkShopVm)));
+    }
+
     private void ToStoreСommand()
     {
         this.messenger.Send(new GetCurrentUser(currentUser));

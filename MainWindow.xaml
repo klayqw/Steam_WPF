@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
         ResizeMode="NoResize"
         Title="MainWindow" Height="1080" Width="1920"
         MouseDown="Window_MouseDown" >
@@ -148,7 +149,8 @@
                 FontFamily="Montserrat"
                 Cursor="Hand"
                 Margin="336,35,1426,1005"
-                     Visibility="{Binding Hood}">
+                     Visibility="{Binding Hood}"
+                    Command="{Binding ToWorkShop}">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Background" Value="#424040"/>

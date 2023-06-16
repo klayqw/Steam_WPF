@@ -40,14 +40,14 @@ public class AddBalanceVM : ViewModelBase
         {
             if (char.IsLetter(item))
             {
-                MessageBox.Show("error1");
+                MessageBox.Show("Error,Money is letter");
                 return;
             }
         }
         if(currentUser.Card.CardNumber == null)
         {
             Console.WriteLine();
-            MessageBox.Show("error2");
+            MessageBox.Show("Error,No card");
             return;
         }
         currentUser.Card.Balance += double.Parse(HowMuch);

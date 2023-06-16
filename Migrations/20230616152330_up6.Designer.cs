@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Steam.Service;
 
@@ -11,9 +12,11 @@ using Steam.Service;
 namespace Steam.Migrations
 {
     [DbContext(typeof(EntityFramework))]
-    partial class EntityFrameworkModelSnapshot : ModelSnapshot
+    [Migration("20230616152330_up6")]
+    partial class up6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,7 +105,12 @@ namespace Steam.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("WorkShopId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("WorkShopId");
 
                     b.ToTable("Content");
                 });
@@ -196,6 +204,24 @@ namespace Steam.Migrations
                     b.ToTable("UserGames");
                 });
 
+            modelBuilder.Entity("Steam.Models.Workshop", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Workshop");
+                });
+
             modelBuilder.Entity("Steam.Models.Comment", b =>
                 {
                     b.HasOne("Steam.Models.Game", "Game")
@@ -213,6 +239,17 @@ namespace Steam.Migrations
                     b.Navigation("Game");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Steam.Models.Content", b =>
+                {
+                    b.HasOne("Steam.Models.Workshop", "workshop")
+                        .WithMany("Content")
+                        .HasForeignKey("WorkShopId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("workshop");
                 });
 
             modelBuilder.Entity("Steam.Models.User", b =>
@@ -245,6 +282,17 @@ namespace Steam.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Steam.Models.Workshop", b =>
+                {
+                    b.HasOne("Steam.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Steam.Models.Game", b =>
                 {
                     b.Navigation("GameComments");
@@ -257,6 +305,11 @@ namespace Steam.Migrations
                     b.Navigation("CommentInGame");
 
                     b.Navigation("UserGames");
+                });
+
+            modelBuilder.Entity("Steam.Models.Workshop", b =>
+                {
+                    b.Navigation("Content");
                 });
 #pragma warning restore 612, 618
         }

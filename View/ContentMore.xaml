@@ -1,0 +1,84 @@
+﻿<UserControl  x:Class="Steam.View.ContentMore"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Steam.View"
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920"
+             Background="#262323">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Images/background.png"/>
+        </Grid.Background>
+        <Label Content="{Binding Title}" Margin="448,219,1268,771" FontSize="50" Foreground="DarkGray"/>
+        <Label Content ="{Binding Desc}" Margin="448,351,486,427" FontSize="30" Foreground="DarkGray"/>
+        <Label Content="{Binding Like}" Margin="697,220,1019,771" FontSize="50" Foreground="DarkGray"/>
+        <Label Content="DISLIKE" Margin="997,119,719,871" FontSize="50" Foreground="White"/>
+        <Label Content="LIKE" Margin="697,124,1019,866" FontSize="50" Foreground="White"/>
+        <Label Content="DESC" Margin="230,450,1486,540" FontSize="50" Foreground="White"/>
+        <Label Content="TITLE" Margin="448,124,1268,866" FontSize="50" Foreground="White"/>
+        <Button x:Name="btnlike"                          
+            BorderThickness="0"
+            Content="LIKE CONNTENT"
+            Foreground="White"
+            FontSize="12"
+            FontFamily="Montserrat"
+            Cursor="Hand"
+            Command="{Binding LikeC}" Margin="448,756,1314,284">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#424040"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#28AEED"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Width="150" Height="40"
+                        CornerRadius="15"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Label Content="{Binding Dislike}" Margin="997,214,719,777" FontSize="50" Foreground="DarkGray"/>
+        <Button x:Name="btndislike"                          
+            BorderThickness="0"
+            Content="DISLIKE CONNTENT"
+            Foreground="White"
+            FontSize="12"
+            FontFamily="Montserrat"
+            Cursor="Hand"
+            Command="{Binding Dislikec}" Margin="644,756,1118,284">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#424040"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#28AEED"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Width="150" Height="40"
+                        CornerRadius="15"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+
+    </Grid>
+</UserControl>

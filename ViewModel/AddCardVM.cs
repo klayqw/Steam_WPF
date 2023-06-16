@@ -53,12 +53,20 @@ public class AddCardVM : ViewModelBase
 
     private void ApplyCommand()
     {
+        if(NumberOnCard.Length != 16)
+        {
+            MessageBox.Show("Error lenght number");
+            return;
+        }
+        if(Code.Length != 3)
+        {
+            MessageBox.Show("Error code");
+            return;
+        }
         var query = App.ServiceContainer.GetInstance<EntityFramework>().Cards.Where(x => x.Id == currentUser.CardId).ToList();
         currentUser.Card = query.First();
         try
         {
-
-
             currentUser.Card.CardNumber = NumberOnCard;
             currentUser.Card.Validity = DateOnCard;
             currentUser.Card.Code = int.Parse(Code);

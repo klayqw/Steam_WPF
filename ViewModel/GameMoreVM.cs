@@ -34,7 +34,7 @@ public class GameMoreVM : ViewModelBase
     private string desc;
     public string Desc
     {
-        get => name;
+        get => desc;
         set => base.PropertyChange(out desc, value);
     }
     private string price;

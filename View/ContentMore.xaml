@@ -13,7 +13,7 @@
             <ImageBrush ImageSource="/Assets/Images/background.png"/>
         </Grid.Background>
         <Label Content="{Binding Title}" Margin="448,219,1268,771" FontSize="50" Foreground="DarkGray"/>
-        <Label Content ="{Binding Desc}" Margin="448,351,486,427" FontSize="30" Foreground="DarkGray"/>
+        <TextBlock TextWrapping ="Wrap" Text ="{Binding Desc}" Margin="448,351,486,427" FontSize="30" Foreground="DarkGray"/>
         <Label Content="{Binding Like}" Margin="697,220,1019,771" FontSize="50" Foreground="DarkGray"/>
         <Label Content="DISLIKE" Margin="997,119,719,871" FontSize="50" Foreground="White"/>
         <Label Content="LIKE" Margin="697,124,1019,866" FontSize="50" Foreground="White"/>

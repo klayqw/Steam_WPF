@@ -14,7 +14,7 @@
         </Grid.Background>
         <Image Source="{Binding ImageUrl}" Margin="45,80,1505,666"/>
         <Label Content="{Binding Name}" Margin="448,152,1268,838" FontSize="50" Foreground="DarkGray"/>
-        <Label Content ="{Binding Desc}" Margin="448,369,486,427" FontSize="30" Foreground="DarkGray"/>
+        <TextBlock TextWrapping ="Wrap" Text ="{Binding Desc}" Margin="448,369,486,427" FontSize="30" Foreground="DarkGray"/>
         <Label Content="{Binding Price}" Margin="756,152,960,839" FontSize="50" Foreground="DarkGray"/>
         <Button x:Name="btnbuy"                          
                 BorderThickness="0"

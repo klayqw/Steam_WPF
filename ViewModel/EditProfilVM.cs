@@ -104,7 +104,13 @@ public class EditProfilVM : ViewModelBase
                 return;
             }
         }
-        
+       
+        if (Code.Any(x => char.IsLetter(x)))
+        {
+            MessageBox.Show("Code cant be number!");
+            return;
+        }
+       
         currentUser.Nickname = Username;
         currentUser.Email = Email;
         currentUser.Password = Password;

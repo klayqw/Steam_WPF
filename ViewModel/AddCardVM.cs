@@ -55,12 +55,17 @@ public class AddCardVM : ViewModelBase
     {
         if(NumberOnCard.Length != 16)
         {
-            MessageBox.Show("Error lenght number");
+            MessageBox.Show("Error lenght number is not 16!");
             return;
         }
         if(Code.Length != 3)
         {
-            MessageBox.Show("Error code");
+            MessageBox.Show("Error code is not 3 letter!");
+            return;
+        }
+        if(NameOnCard.Length == 0)
+        {
+            MessageBox.Show("Error,Name on card cant be 0 lenght!");
             return;
         }
         var query = App.ServiceContainer.GetInstance<EntityFramework>().Cards.Where(x => x.Id == currentUser.CardId).ToList();

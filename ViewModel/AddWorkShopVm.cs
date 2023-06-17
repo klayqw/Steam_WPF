@@ -40,9 +40,14 @@ public class AddWorkShopVm : ViewModelBase
 
     private void ApplyCommand()
     {
-        if(Title.Length < 0)
+        if(Title.Length == 0 || Title.Length >= 20)
         {
-            MessageBox.Show("Title cant be zero lenght!");
+            MessageBox.Show("Title cant be zero lenght or too big!");
+            return;
+        }
+        if(Desc.Length == 0)
+        {
+            MessageBox.Show("Desc cant be zero lenght");
             return;
         }
        App.ServiceContainer.GetInstance<EntityFramework>().Content.Add(new Content()

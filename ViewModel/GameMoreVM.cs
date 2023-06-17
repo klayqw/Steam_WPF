@@ -88,12 +88,12 @@ public class GameMoreVM : ViewModelBase
         var allusergame = App.ServiceContainer.GetInstance<EntityFramework>().UserGames;
         if (allusergame.Any(x => x.GameId == currentGame.Id && x.UserId == currentUser.Id))
         {
-            MessageBox.Show("Allreadybuy");
+            MessageBox.Show("All ready have!");
             return;
         }
         if (currentUser.Card.Balance < currentGame.Price)
         {
-            MessageBox.Show("Money");
+            MessageBox.Show("Balance is too low");
             return;
         }
         currentUser.Card.Balance -= currentGame.Price;

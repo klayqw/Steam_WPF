@@ -36,13 +36,15 @@ public class AddBalanceVM : ViewModelBase
     {
         var query = App.ServiceContainer.GetInstance<EntityFramework>().Cards.Where(x => x.Id == currentUser.CardId).ToList();
         currentUser.Card = query.First();
-        foreach(var item in HowMuch)
+        if(HowMuch.Any(x => char.IsLetter(x)))
         {
-            if (char.IsLetter(item))
-            {
-                MessageBox.Show("Error,Money is letter");
-                return;
-            }
+            MessageBox.Show("Error,Money is char!");
+            return;
+        }
+        if(double.Parse(HowMuch) >= 2_000_000)
+        {
+            MessageBox.Show("Error,Money is too big!");
+            return;
         }
         if(currentUser.Card.CardNumber == null)
         {

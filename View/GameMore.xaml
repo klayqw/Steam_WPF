@@ -14,8 +14,8 @@
         </Grid.Background>
         <Image Source="{Binding ImageUrl}" Margin="45,80,1505,666"/>
         <Label Content="{Binding Name}" Margin="448,152,1268,838" FontSize="50" Foreground="DarkGray"/>
-        <Label Content ="{Binding Desc}" Margin="448,351,486,427" FontSize="30" Foreground="DarkGray"/>
-        <Label Content="{Binding Price}" Margin="1332,152,384,839" FontSize="50" Foreground="DarkGray"/>
+        <Label Content ="{Binding Desc}" Margin="448,369,486,427" FontSize="30" Foreground="DarkGray"/>
+        <Label Content="{Binding Price}" Margin="756,152,960,839" FontSize="50" Foreground="DarkGray"/>
         <Button x:Name="btnbuy"                          
                 BorderThickness="0"
                 Content="BUY"
@@ -45,10 +45,10 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Label Content="PRICE" Margin="1332,62,384,928" FontSize="50" Foreground="White"/>
-        <Label Content="DESC" Margin="230,450,1486,540" FontSize="50" Foreground="White"/>
+        <Label Content="PRICE" Margin="756,62,960,928" FontSize="50" Foreground="White"/>
+        <Label Content="DESC" Margin="448,247,1268,743" FontSize="50" Foreground="White"/>
         <Label Content="NAME" Margin="448,62,1268,928" FontSize="50" Foreground="White"/>
-        <TextBox Text="{Binding Leavecomment}" Margin="467,746,680,291" />
+        <TextBox Text="{Binding Leavecomment}" Margin="467,746,680,291" Background="Transparent"/>
         <Label Content="COMMENT" Margin="467,658,1145,332" FontSize="50" Foreground="White"/>
         <Button x:Name="btnsendcomment"                          
             BorderThickness="0"

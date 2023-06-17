@@ -15,7 +15,7 @@
 
         <ListView ItemsSource="{Binding Contents}" Margin="0,88,320,10" Background="Transparent" SelectedItem="{Binding ContentSelect}">
             <b:Interaction.Triggers>
-                <b:EventTrigger EventName="SelectionChanged">
+                <b:EventTrigger EventName="MouseDoubleClick">
                     <b:InvokeCommandAction Command="{Binding More}"/>
                 </b:EventTrigger>
             </b:Interaction.Triggers>
@@ -50,7 +50,7 @@
             FontSize="12"
             FontFamily="Montserrat"
             Cursor="Hand"
-            Margin="1633,88,129,952"   Command="{Binding Add}">
+            Margin="1630,1030,132,10"   Command="{Binding Add}">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="#424040"/>

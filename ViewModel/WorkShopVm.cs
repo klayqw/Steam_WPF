@@ -43,6 +43,10 @@ public class WorkShopVm : ViewModelBase
 
     private void MoreCommand()
     {
+        if (ContentSelect == null)
+        {
+            return;
+        }
         this.messenger.Send(new GetCurrentUser(currentUser));
         this.messenger.Send(new GetCurrentContent(ContentSelect));
         this.messenger.Send(new ViewNavigate(typeof(ContentMoreVm)));

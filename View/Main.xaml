@@ -12,6 +12,35 @@
             <ImageBrush ImageSource="/Assets/Images/background.png">
             </ImageBrush>
         </Grid.Background>
+        <Button x:Name="btn"                          
+            BorderThickness="0"
+            Content="?BUTTON?"
+            Foreground="White"
+            FontSize="12"
+            FontFamily="Montserrat"
+            Cursor="Hand"
+            Command="{Binding Button}" Margin="29,1000,1733,40">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#424040"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#28AEED"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Width="150" Height="40"
+                        CornerRadius="15"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
     </Grid>
 </UserControl>
